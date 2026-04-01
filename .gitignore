@@ -1,3 +1,14 @@
-.env
+# Virtual environment
+.venv/
+venv/
+
+# Cache files
 __pycache__/
 *.pyc
+
+# Streamlit files
+.streamlit/
+
+# System files
+.DS_Store
+Thumbs.db
