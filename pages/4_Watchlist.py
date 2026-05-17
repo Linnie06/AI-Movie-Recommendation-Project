@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 
 st.set_page_config(page_title="My Watchlist", layout="wide")
 
@@ -17,8 +18,26 @@ with col2:
         st.switch_page("main.py")
 
 # ---------- LOAD DATA ----------
+if not os.path.exists("watchlist.csv"):
+
+    watchlist_df = pd.DataFrame(
+        columns=[
+            "user_id",
+            "movieId",
+            "title"
+        ]
+    )
+
+    watchlist_df.to_csv(
+        "watchlist.csv",
+        index=False
+    )
+
 watchlist = pd.read_csv("watchlist.csv")
-user_watchlist = watchlist[watchlist["user_id"] == user_id]
+
+user_watchlist = watchlist[
+    watchlist["user_id"] == user_id
+]
 
 # ---------- UI STYLES (MATCH OTHER PAGES) ----------
 st.markdown("""
