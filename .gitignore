@@ -12,3 +12,8 @@ __pycache__/
 # System files
 .DS_Store
 Thumbs.db
+
+# User data 
+users.csv 
+user_preferences.csv 
+watchlist.csv
